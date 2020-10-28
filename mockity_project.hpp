@@ -1,3 +1,5 @@
+// mockity_project.hpp: use this file as an includde in your MS Dev Project
+// A part of Mockity
 /*
 
 Copyright (c) 2020 FINAL Neural Architecture Laboratories
@@ -24,6 +26,14 @@ DEALINGS IN THE SOFTWARE.
 
 #pragma once
 
+#ifndef USING_MOCKITY
+#define USING_MOCKITY
+#endif
+
+/*
+MOCKITY_PROTECTED and MOCKITY_VIRTUAL can be used when the only reason to make
+something protected or virtual is for the Mockity derived classes to work properly
+*/
 #ifndef MOCKITY_PROTECTED
 #define MOCKITY_PROTECTED protected
 #endif

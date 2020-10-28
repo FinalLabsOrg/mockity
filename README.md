@@ -1,1 +1,1 @@
-# mockity
+Mockity™ is a C++ test helper class for Microsoft Visual Studio that helps us in inspecting classes and creating mocks. For more information on how to use Mockity™ please see [https://www.final-labs.org/dev/mockity] (https://www.final-labs.org/dev/mockity)

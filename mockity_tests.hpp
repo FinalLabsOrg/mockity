@@ -1,4 +1,4 @@
-// mockity_tests.hpp: use this file as an includde in your MS Test Project
+// mockity_tests.hpp: use this file as an includde in your MS Tests Project
 // A part of Mockity
 /*
 
@@ -37,23 +37,33 @@ IN THE SOFTWARE.
 #define USING_MOCKITY
 #endif
 
+/*
+Shorthand when icluding CppUnitTest.h
+*/
 #ifndef MOCKITY_MS_TEST_INCLUDE
 #define MOCKITY_MS_TEST_INCLUDE "CppUnitTest.h"
 #endif
 
+/*
+Shorthand for using the MS Test namespace
+*/
 #ifndef MOCKITY_USE_MS_TEST_NAMESPACE
 #define MOCKITY_USE_MS_TEST_NAMESPACE using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 #endif
 
 /*
-Add the ; afterwards
+Shorthand for a fixed random seed
 */
 #define MOCKITY_SRAND srand(1);
+
+/*
+Stub for unimplemented tests
+*/
 #define MOCKITY_FAIL_STUB Assert::Fail(L"To be implemented");
 
 #ifndef MOCKITY_INIT_STRINGER
 /*
-Calls Stringer constructor
+Calls Mockity::Stringer's constructor
 */
 #define MOCKITY_INIT_STRINGER Mockity::Stringer()
 #endif
@@ -64,12 +74,6 @@ Provides for public inheritance from Stringer
 */
 #define MOCKITY_WITH_STRINGER public Mockity::Stringer
 #endif
-
-/*
-#ifndef MOCKITY_IGNORE
-#define MOCKITY_IGNORE(TEST_TO_BE_IGNORED) BEGIN_TEST_METHOD_ATTRIBUTE(TEST_TO_BE_IGNORED) TEST_IGNORE() END_TEST_METHOD_ATTRIBUTE()
-#endif
-*/
 
 namespace Mockity {
 
