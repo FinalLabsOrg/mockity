@@ -75,12 +75,6 @@ Provides for public inheritance from Stringer
 #define MOCKITY_WITH_STRINGER public Mockity::Stringer
 #endif
 
-/*
-#ifndef MOCKITY_IGNORE
-#define MOCKITY_IGNORE(TEST_TO_BE_IGNORED) BEGIN_TEST_METHOD_ATTRIBUTE(TEST_TO_BE_IGNORED) TEST_IGNORE() END_TEST_METHOD_ATTRIBUTE()
-#endif
-*/
-
 namespace Mockity {
 
 	/*
