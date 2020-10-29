@@ -75,6 +75,12 @@ Provides for public inheritance from Stringer
 #define MOCKITY_WITH_STRINGER public Mockity::Stringer
 #endif
 
+/*
+#ifndef MOCKITY_IGNORE
+#define MOCKITY_IGNORE(TEST_TO_BE_IGNORED) BEGIN_TEST_METHOD_ATTRIBUTE(TEST_TO_BE_IGNORED) TEST_IGNORE() END_TEST_METHOD_ATTRIBUTE()
+#endif
+*/
+
 namespace Mockity {
 
 	/*
@@ -99,9 +105,36 @@ namespace Mockity {
 		std::shared_ptr<std::map<std::string, unsigned>> aFunctionCounter;
 	public:
 		inline Stringer();
+
+		/// <summary>
+		/// Returns true if the actual calling order is in line with the expectations.
+		/// You can then simply Assert::IsTrue(pMockObject->assertOrder()).
+		/// </summary>
+		/// <returns>Bool: is the actual calling order in line with expectations?</returns>
 		bool assertOrder() const { return *aExpectedOrder == *aActualOrder; }
+
+		/// <summary>
+		/// Used in the virtual method before calling the actual method in the parent class. 
+		/// Just pass it the code/name of the current method call in order to count how many 
+		/// times it is called.
+		/// </summary>
+		/// <param name="s">Code/name of the current method call</param>
 		inline void countFunctionCall(std::string s) const;
+
+		/// <summary>
+		/// Call it from the test method when defining your expected call order. 
+		/// Pass the code/name of the next expected method call to record the order 
+		/// the methods are expected to be called.
+		/// </summary>
+		/// <param name="s">Code/name of the next expected method call</param>
 		void expectOrder(std::string s) { aExpectedOrder->push_back(s); }
+
+		/// <summary>
+		/// Returns the number of calls to a specific code/method. 
+		/// You can check this output as part of one of your assertions.
+		/// </summary>
+		/// <param name="s">Code/name of the method call in question</param>
+		/// <returns>unsigned: the number of calls to a specific code/method</returns>
 		inline unsigned getFunctionCallCount(std::string s) const;
 	};
 
